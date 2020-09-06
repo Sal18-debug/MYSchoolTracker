@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Elementary School Piggy</title>
+	<link href="css/style.css" rel="stylesheet" type="text/css" /> 
+	<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js"></script>
+	<script src="js/database.js"></script>
+	<script src="js/account.js"></script>
+	<script src="js/maps.js"></script>
+
+	<div id="navcontainer">
+		<ul id="navlist">
+			<li><a href="index.html">Home</a></li>
+			<li id="menuLogin"><a href="signin.html">Login</a></li>
+			<li id="menuRegister"><a href="registration.html">Registration</a></li>
+			<li id="menuLogout"><a onclick="logout()">Logout</a></li>
+			<li id="menuTracking"><a href="tracking.html">Tracking</a></li>
+			<li id="menuMyBuddy"><a href="mybuddy.html">My Buddy</a></li>
+			<li id="manuRelaxAndFun"><a href="relax.html">Relax and Fun</a></li>
+		</ul>
+	</div>
+	<div style="float: right; padding-right:50px; color: white; display:none; font-weight: bold; text-decoration:underline; font-size: 20px"
+	 id="divCurrentUser">
+		<label>Logged In As: </label>
+			<label id="lblCurrentUserName"></label>
+		</div>
+
+		<div class="wrapper" style="width:100%">
+			<h1>Your Childs Geo Fence & Location</h1>
+			<br>
+			<section class="content iboxes" style="width:100%">
+  			<div class="columns">
+					<aside class="sidebar-first ibox" style="height:800px">
+						<div style="width:100%;height:100%;">
+							<h2>Your Children</h2>
+							<br>
+							<h3>Add Child</h3>		
+							<div style="width: 100%;">
+								<label>Child Name: </label>
+								<input type="text" id="txtNewChildName"></input>
+								<button onclick="addNewChild()">Add</button>
+							</div>
+							<br>
+							<br>
+							<table width="100%;" id="childTable">
+								<tr>
+									<th width="4%">#</th>
+									<th width="56%">Name</th>
+									<th width="40%">Distance From School (Meter)</th>
+								</tr>
+							</table>
+							<br>
+							<br>
+						</div>
+					</aside>
+					<aside class="main ibox" style="height:800px">
+						<h2>The School & Radius</h2>
+						<br>
+						<label>In the below map, the 'S' marker shows the location of the school, the red circle shows the radius in which the children can move. Each of the other markers represent a child from the list to the left</label>
+						<br>
+						<br>
+						<div id="googleMap" style="width:100%;height:85%;"></div>
+					</aside>
+				</div>
+			</section>
+		</div>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXwi8tb4k60E7L2-pLTIOuCT43bknR0eQ&callback=myMap"></script>
+</body>
+
+</html>
